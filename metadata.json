@@ -1,6 +1,6 @@
 {
   "name": "deversus-puma",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "author": "Deversus Software",
   "summary": "Configure puma servers for Ruby-on-Rails apps",
   "license": "MIT",
@@ -10,7 +10,7 @@
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
-      "version_requirement": ">= 4.1.0"
+      "version_requirement": "< 7.0.0"
     },
     {
       "name": "deversus-upstart",
