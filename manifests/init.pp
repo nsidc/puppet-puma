@@ -19,6 +19,6 @@ class puma (
   $rvm_ruby                 = $puma::params::rvm_ruby,
   $service_type             = $puma::params::service_type,
   $restart_command          = $puma::params::restart_command,
-  $bunlder_path             = $puma::params::bundler_path,
+  $bundler_path             = $puma::params::bundler_path,
 ) inherits puma::params{
 }
