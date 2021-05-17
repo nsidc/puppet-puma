@@ -13,7 +13,7 @@ User=<%= @puma_user %>
 Group=<%= @puma_user %>
 
 # The command to start puma
-ExecStart=/usr/local/bin/bundle exec puma -C <%= @puma_config_path %>
+ExecStart=<%= @bundler_path %> exec puma -C <%= @puma_config_path %>
 Restart=on-failure
 
 [Install]
