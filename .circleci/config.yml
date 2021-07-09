@@ -33,6 +33,13 @@ jobs:
         environment:
           BUNDLE_GEMFILE: Gemfile5
 
+  test-puppet6:
+    <<: *test_setup
+    docker:
+      - image: ruby:2.4-jessie
+        environment:
+          BUNDLE_GEMFILE: Gemfile6
+
 workflows:
   version: 2
   test-workflow:
@@ -40,3 +47,4 @@ workflows:
       - test-puppet3
       - test-puppet4
       - test-puppet5
+      - test-puppet6
