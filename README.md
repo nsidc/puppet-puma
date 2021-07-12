@@ -50,6 +50,7 @@ This would install a service called `myapp` (in `/etc/init` if `upstart` is used
 
 An RVM ruby environment for `ruby-2.0.0-p0` will be installed if needed and used to launch puma. (with `rvm_ruby => false`, system ruby will be used)
 
+If you need to use a version of bundler other than the one at `/usr/local/bin/bundler`, specify it in the config like `bundler_path => '/usr/local/rbenv/shims/bundler'`.
 
 ### Configuring NGINX
 
