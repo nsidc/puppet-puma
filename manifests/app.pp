@@ -56,7 +56,7 @@ define puma::app (
     ensure => directory,
     owner  => $puma_user,
     group  => $www_user,
-    mode   => 'ug=rwxs,o-o',
+    mode   => 'ug+rwxs',
   }
 
   # For the rest, just ensure reachable
