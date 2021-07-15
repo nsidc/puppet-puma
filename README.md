@@ -78,7 +78,7 @@ will add it). Then do:
 ```
 bundle install --gemfile=Gemfile_common # install bump gem if necessary
 bump <level> --tag --tag-prefix v --changelog --replace-in metadata.json # <level> is major, minor, or patch
-git push # push updated version tags etc. to origin
+git push origin v<new version number> # push updated version tag to origin
 ```
 
 Other useful `bump` options:
