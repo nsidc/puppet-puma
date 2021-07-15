@@ -83,11 +83,6 @@ define puma::app (
         pre_start     => "sudo mkdir -p ${puma_pid_dir}\nsudo chown -R \
                          ${puma_user}:${puma_user} ${puma_pid_dir}\n"
       }
-      $puma_daemonize = false # this is important
-                  #  - upstart does NOT play well with doing your own
-                  # daemonization - best to just give it a regular process
-                  # ps: expect deamon is not nearly as smart/reliable as it
-                  # claims to be
     }
     'sysv': {
       # Old-school init.d - no supervision
@@ -109,7 +104,6 @@ define puma::app (
           File[$puma_config_path],
         ]
       }
-      $puma_daemonize = true
     }
     'systemd': {
       file { 'systemd_config':

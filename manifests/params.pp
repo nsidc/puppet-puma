@@ -1,6 +1,7 @@
 # puma::params class
 class puma::params {
   $puma_user          = 'puma'
+  $www_user           = 'www-data'
   $min_threads        = 1
   $max_threads        = 16
   $port               = 9292
@@ -25,9 +26,6 @@ class puma::params {
       $puma_stdout_log_path_spf = '/var/log/%s.puma.stdout.log'
       $puma_stderr_log_path_spf = '/var/log/%s.puma.stderr.log'
       $init_script_spf    = '/etc/init.d/%s'
-      unless $www_user {
-        $www_user       = 'www-data' # generic debian web-server user
-      }
       case $::operatingsystem {
         'Ubuntu': {
           if $::operatingsystemmajrelease >= '15.04' {

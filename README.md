@@ -13,7 +13,7 @@ For a more comprehensive Rails deployment recipe which makes use of this module,
 ## Dependencies
 The following gems should be installed prior to use of the `puma::app` resource:
 
-* puma
+* puma >= 5.0.0
 * bundler
 
 ## Optional Dependencies
@@ -42,6 +42,7 @@ puma::app {'myapp':
     rails_env          => 'production',
     rvm_ruby           => 'ruby-2.0.0-p0',
     restart_command    => 'puma',
+    bundler_path       => '/usr/local/bin/bundler'
 }
 
 ```
@@ -65,3 +66,25 @@ puma::nginxconfig {'myapp':
 ```
 
 This will create the necessary NGINX vhost and location configurations to serve a puma rails app.
+
+## Release Management
+
+The [`bump` gem](https://github.com/gregorym/bump) is used to manage version information in
+`CHANGELOG`, `metadata.json`, and Git tags. Currently this is a manual process. Insert a
+description of your changes at the top of the `CHANGELOG` file, leaving a blank line between
+your new description and the previous version entry. No header markup is necessary (`bump`
+will add it). Then do:
+
+```
+bundle install --gemfile=Gemfile_common # install bump gem if necessary
+bump <level> --tag --tag-prefix v --changelog --replace-in metadata.json # <level> is major, minor, or patch
+git push # push updated version tags etc. to origin
+```
+
+Other useful `bump` options:
+
+```
+bump current # show current version
+bump show-next patch # Show next version for specified bump level
+bump file # Show file used as version reference.
+```

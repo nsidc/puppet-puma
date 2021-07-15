@@ -16,11 +16,6 @@ directory '<%= @app_root %>'
 #
 environment '<%= @env['RACK_ENV'] %>'
 
-# Daemonize the server into the background. Highly suggest that
-# this be combined with “pidfile” and “stdout_redirect”.
-#
-daemonize <%= @puma_daemonize %>
-
 # Store the pid of the server in the file at “path”.
 #
 pidfile "<%= @puma_pid_path %>"
