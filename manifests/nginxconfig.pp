@@ -32,8 +32,8 @@ define puma::nginxconfig(
     location_custom_cfg        => {
       'access_log'  => 'off',
       'expires'     => 'max',
-      'add_header'  => 'Cache-Control "public"',
-      'add_header'  => 'Etag ""',
+      'add_header'  => ['Cache-Control "public"', 'Etag ""'],
+      # 'add_header'  => 'Etag ""',
       'gzip_static' => 'on',
     },
     location_custom_cfg_append => {

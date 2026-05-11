@@ -1,0 +1,21 @@
+services:
+
+  lint:
+    image: "test"
+    build: "."
+    volumes:
+      # Code
+      - "./manifests:/test/manifests"
+#      - "./spec:/test/spec"
+      - "./tasks:/test/tasks"
+    command: "bundle exec rake lint"
+
+#  test:
+#    image: "test"
+#    build: "."
+#    volumes:
+#      # Code
+#      - "./manifests:/test/manifests"
+#      - "./spec:/test/spec"
+#      - "./tasks:/test/tasks"
+#    command: "bundle exec rake spec:unit"

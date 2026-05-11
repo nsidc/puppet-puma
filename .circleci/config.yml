@@ -1,12 +1,12 @@
 version: 2
 
 jobs:
-  test-puppet3: &test_setup
+  test-puppet8: &test_setup
     working_directory: ~/puppet-puma
     docker:
-      - image: ruby:2.1  # puppet 3 is incompatible with ruby 2.2+
+      - image: ruby:3.4-bookworm
         environment:
-          BUNDLE_GEMFILE: Gemfile3
+          BUNDLE_GEMFILE: Gemfile8
     steps:
       - checkout
       - run:
@@ -19,32 +19,8 @@ jobs:
           name: Unit tests
           command: bundle exec rake validate
 
-  test-puppet4:
-    <<: *test_setup
-    docker:
-      - image: ruby:2.4-jessie
-        environment:
-          BUNDLE_GEMFILE: Gemfile4
-
-  test-puppet5:
-    <<: *test_setup
-    docker:
-      - image: ruby:2.4-jessie
-        environment:
-          BUNDLE_GEMFILE: Gemfile5
-
-  test-puppet6:
-    <<: *test_setup
-    docker:
-      - image: ruby:2.4-jessie
-        environment:
-          BUNDLE_GEMFILE: Gemfile6
-
 workflows:
   version: 2
   test-workflow:
     jobs:
-      - test-puppet3
-      - test-puppet4
-      - test-puppet5
-      - test-puppet6
+      - test-puppet8

@@ -14,6 +14,6 @@ define puma::rvm(
     require => Rvm_system_ruby[$rvm_ruby],
   }
   -> rvm_gem {"${rvm_ruby}@${app_name}/bundler":
-    ensure  => present,
+    ensure => present,
   }
 }
