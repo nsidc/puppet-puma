@@ -11,9 +11,11 @@ Configurations for Debian-family systems included, patches welcome for other OSe
 For a more comprehensive Rails deployment recipe which makes use of this module, see [`deversus-rails`](https://forge.puppetlabs.com/deversus/rails).
 
 ## Dependencies
+This version supports Puppet 8; older versions of puppet are no longer supported by this module. To use an older version of puppet, you can use a tagged version (such as `puppet7`), but they will not be maintained further.
+
 The following gems should be installed prior to use of the `puma::app` resource:
 
-* puma >= 5.0.0
+* puma >= 5.0.0 (higher versions recommended when possible)
 * bundler
 
 ## Optional Dependencies
@@ -40,7 +42,7 @@ puma::app {'myapp':
     init_active_record => false,
     preload_app        => true,
     rails_env          => 'production',
-    rvm_ruby           => 'ruby-2.0.0-p0',
+    rvm_ruby           => 'ruby-3.4.9',
     restart_command    => 'puma',
     bundler_path       => '/usr/local/bin/bundler'
 }
@@ -49,7 +51,7 @@ puma::app {'myapp':
 
 This would install a service called `myapp` (in `/etc/init` if `upstart` is used,  `/etc/systemd/system/` ,or `/etc/init.d` for init). Socket and PID files will be put in `/var/run/myapp/`. Log files will be put in `/var/log/myapp.puma.stdout.log` etc.
 
-An RVM ruby environment for `ruby-2.0.0-p0` will be installed if needed and used to launch puma. (with `rvm_ruby => false`, system ruby will be used)
+An RVM ruby environment for `ruby-3.4.9` will be installed if needed and used to launch puma. (with `rvm_ruby => false`, system ruby will be used)
 
 If you need to use a version of bundler other than the one at `/usr/local/bin/bundler`, specify it in the config like `bundler_path => '/usr/local/rbenv/shims/bundler'`.
 

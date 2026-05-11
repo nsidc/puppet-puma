@@ -1,21 +1,17 @@
 services:
 
   lint:
-    image: "test"
+    image: "test-puppet-puma"
     build: "."
     volumes:
       # Code
       - "./manifests:/test/manifests"
-#      - "./spec:/test/spec"
-      - "./tasks:/test/tasks"
     command: "bundle exec rake lint"
 
-#  test:
-#    image: "test"
-#    build: "."
-#    volumes:
-#      # Code
-#      - "./manifests:/test/manifests"
-#      - "./spec:/test/spec"
-#      - "./tasks:/test/tasks"
-#    command: "bundle exec rake spec:unit"
+  validate:
+    image: "test-puppet-puma"
+    build: "."
+    volumes:
+      # Code
+      - "./manifests:/test/manifests"
+    command: "bundle exec rake validate"

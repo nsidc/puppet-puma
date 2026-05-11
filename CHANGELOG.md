@@ -1,3 +1,6 @@
+## v2.0.0
+- Update to use Puppet 8 and related dependencies
+
 ## v1.2.0
 - Remove `puma` configuration elements no longer supported by Puppet 5.x.
 - Add `VERSION` file and documentation for version management using `bump`.
