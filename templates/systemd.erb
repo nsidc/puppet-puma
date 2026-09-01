@@ -6,7 +6,9 @@ Description=<%= @app_name %> - puma application
 
 [Service]
 Type=simple
-
+<% @env.each do |key, value| %>
+Environment="<%= key %>=<%= value %>"
+<% end %>
 WorkingDirectory=<%= @app_root %>
 RuntimeDirectory=<%= @app_name %>
 PIDFile=<%= @puma_pid_path %>

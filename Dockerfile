@@ -1,4 +1,4 @@
-FROM ruby:3.4.9-bookworm
+FROM ruby:3.4.10-bookworm
 
 COPY . /test/
 

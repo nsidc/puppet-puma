@@ -1,3 +1,9 @@
+## v2.0.1
+
+- Bugfix: properly pass along `env` hash to puma managed by systemd.
+- Upgrade ruby from 3.4.9 -> 3.4.10
+
+
 ## v2.0.0
 - Update to use Puppet 8 and related dependencies
 
