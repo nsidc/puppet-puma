@@ -93,11 +93,30 @@ bump file # Show file used as version reference.
 
 ## Testing
 
-This module runs tests on CircleCI after each push; these tests mostly just check for proper puppet linting and syntax.
+This module runs tests with GitHub Actions after each push; these tests mostly
+just check for proper puppet linting and syntax.
 
-To run those tests locally, things have been wrapped into a Docker container.  You can run the tests like this:
+To run those tests locally, things have been wrapped into a Docker container.
+You can run the tests like this:
 
 ```
 docker-compose run lint
 docker-compose run validate
 ```
+
+### Testing against a dev VM project
+
+The `vadr` project at NSIDC uses `puppet-puma` and can be used to test changes. 
+
+Update that project's Puppetfile with the ref of the branch you want to test, then bring up a dev VM:
+
+```
+cd /path/to/vadr-repo/
+vagrant nsidc up --env=dev
+```
+
+Once the machine is up, confirm the puma app is running by navigating to
+(subsituting in your username):
+<http://dev.vadr.{YOUR_USERNAME}.dev.int.nsidc.org/>. If you see an API doc page
+for vadr, then the plugin updates probably worked! Be sure to check the logs for
+any errors/warnings.

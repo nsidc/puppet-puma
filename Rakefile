@@ -2,7 +2,7 @@ require 'rubygems'
 
 desc "Run the puppet linter"
 task :lint do
-  sh "puppet lint manifests/"
+  sh "openvox-lint manifests/"
 end
 
 desc "Validate manifests, templates, and ruby files"
