@@ -1,3 +1,7 @@
+## NEXT_VERSION
+
+- Updated test configuration to confirm openvox8 support.
+
 ## v2.0.1
 
 - Bugfix: properly pass along `env` hash to puma managed by systemd.
