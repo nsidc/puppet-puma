@@ -93,9 +93,11 @@ bump file # Show file used as version reference.
 
 ## Testing
 
-This module runs tests on CircleCI after each push; these tests mostly just check for proper puppet linting and syntax.
+This module runs tests with GitHub Actions after each push; these tests mostly
+just check for proper puppet linting and syntax.
 
-To run those tests locally, things have been wrapped into a Docker container.  You can run the tests like this:
+To run those tests locally, things have been wrapped into a Docker container.
+You can run the tests like this:
 
 ```
 docker-compose run lint
